@@ -1,0 +1,23 @@
+{
+  "name": "front-end-terms",
+  "version": "1.0.0",
+  "description": "フロントエンドコーディング規約",
+  "main": "index.js",
+  "scripts": {
+    "lint": "markdownlint --ignore node_modules ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eichiii-inc/front-end-terms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eichiii-inc/front-end-terms/issues"
+  },
+  "homepage": "https://github.com/eichiii-inc/front-end-terms#readme",
+  "devDependencies": {
+    "markdownlint": "^0.24.0",
+    "markdownlint-cli": "^0.29.0"
+  }
+}
