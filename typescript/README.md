@@ -1,0 +1,1 @@
+# Typescriptコーディング規約
