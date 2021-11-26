@@ -6,12 +6,12 @@
 ```JavaScript
 // bad
   const sayHello = (name) => {
-    return 'Hello' + name
+    return 'Hello' + ' ' + name
   }
 
  // good
   const sayHello = (name) => {
-    return `Hello${name}`
+    return `Hello ${name}`
   }
 ```
 
