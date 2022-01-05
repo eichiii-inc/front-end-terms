@@ -83,8 +83,8 @@ const getFullName = (user) => {
 }
 
 // good
-const getFullName = (obj) => {
-  const { firstName, lastName } = obj
+const getFullName = (user) => {
+  const { firstName, lastName } = user
   return `${firstName} ${lastName}`
 }
 
@@ -94,6 +94,34 @@ const getFullName = ({ firstName, lastName }) => {
 }
 ```
 
+## Modules
+
+パスからは一箇所のみでインポートすること。
+
+```Javascript
+// bad
+import foo from 'foo';
+// … some other imports … //
+import { name1, name2 } from 'foo'
+
+// good
+import foo, { name1, name2 } from 'foo'
+```
+
 ## Equality
 
 抽象的な比較演算子 == や != よりも、厳格な比較演算子 === や !== を使用すること。
+
+三項演算子は入れ子にするべきではなく、一般に単一行に記述すること。
+
+```Javascript
+// bad
+const foo = maybe1 > maybe2
+  ? "bar"
+  : value1 > value2 ? "baz" : null
+
+// 分離させる
+const maybeNull = value1 > value2 ? 'baz' : null
+// good
+const foo = maybe1 > maybe2 ? 'bar' : maybeNull
+```
