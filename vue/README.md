@@ -30,3 +30,25 @@ components/
   </li>
 </ul>
 ```
+
+- ディレクティブの短縮記法を使用する
+
+```html
+<!-- bad -->
+<input
+  v-bind:value="newTodoText"
+  v-on:input="onInput" />
+
+<template v-slot:header>
+  <h1>Here might be a page title</h1>
+</template>
+
+<!-- good -->
+<input
+  :value="newTodoText"
+  @input="onInput" />
+
+<template #header>
+  <h1>Here might be a page title</h1>
+</template>
+```
