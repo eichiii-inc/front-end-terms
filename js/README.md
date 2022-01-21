@@ -2,6 +2,15 @@
 
 ## String
 
+- シングルクォートを使う
+
+```JavaScript
+// bad
+const foo = "bar"
+//good
+const foo = 'bar'
+```
+
 - プログラムで文字列を生成する場合は、文字列連結ではなくテンプレートリテラルを使用する。
 
 ```JavaScript
@@ -45,12 +54,26 @@ const eichikun = 'eichikun'
 // bad
 const obj = {
   eichikun: eichikun,
+  // … some other … //
 }
 
 //good
 const obj = {
   eichikun,
+  // … some other … //
 }
+```
+
+- オブジェクトのコピーはスプレッド演算子を使用する。
+
+```JavaScript
+// bad
+const original = { a: 1, b: 2 }
+const copy = Object.assign(original, { c: 3 })
+
+// good
+const original = { a: 1, b: 2 }
+const copy = { ...original, c: 3 }
 ```
 
 ## Array
@@ -68,6 +91,18 @@ for (let i = 0; i < items.length; i++) {
 
 // good
 const itemsCopy = [...items]
+```
+
+## Functions
+
+- 関数が単一の引数を取り、{ }を使用しない場合は、( )を省略すること。
+
+```JavaScript
+// bad
+[1, 2, 3].map((x) => x + 1)
+
+// good
+[1, 2, 3].map(x => x + 1)
 ```
 
 ## Destructuring
@@ -102,15 +137,27 @@ const getFullName = ({ firstName, lastName }) => {
 // bad
 import foo from 'foo';
 // … some other imports … //
-import { name1, name2 } from 'foo'
+import { eichi1, eichi2 } from 'foo'
 
 // good
-import foo, { name1, name2 } from 'foo'
+import foo, { eichi1, eichi2 } from 'foo'
 ```
 
 ## Equality
 
 - 抽象的な比較演算子 == や != よりも、厳格な比較演算子 === や !== を使用する。
+
+```JavaScript
+//bad
+if (a == 'bar') {
+  console.log('bar')
+}
+
+// good
+if (a === 'bar') {
+  console.log('bar')
+}
+```
 
 - 三項演算子は入れ子にするべきではなく、単一行に記述すること。
 
