@@ -2,7 +2,7 @@
 
 - 単一ファイルコンポーネント のファイル名は、すべてパスカルケース (PascalCase) にする
 
-```
+```code
 components/
 |- MyComponent.vue
 ```
