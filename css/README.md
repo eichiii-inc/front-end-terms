@@ -8,7 +8,7 @@
 
 ```css
 /* bad */
-@keyflames {
+@keyframes {
   fadeIn {
     0% {
       opacity: 0;
@@ -21,7 +21,7 @@
 }
 
 /* good */
-@keyflames {
+@keyframes {
   fade-in {
     0% {
       opacity: 0;
