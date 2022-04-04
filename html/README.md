@@ -3,16 +3,22 @@
 ## Style Rule
 
 ### general style
-#### インデント
 
-<a name="html-indent">&ensp;</a>
+#### インデント
+<!-- markdownlint-disable -->
+<a name="html-indent">インデント</a>
+<!-- markdownlint-enable -->
+
 2スペース
+
 ```html
 <!-- bad -->
+<!-- markdownlint-disable -->
 <section>
 	<article>記事</article> <!-- タブインデント -->
 	<article>記事</article> <!-- タブインデント -->
 </section>
+<!-- markdownlint-enable -->
 
 <!-- good -->
 <section>
@@ -20,4 +26,3 @@
   <article>記事</article> <!-- スペースインデント -->
 </section>
 ```
-
