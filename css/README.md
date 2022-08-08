@@ -4,7 +4,15 @@
 
 - idセレクターを使用しない
 
-- keyflamesはケバブケースで記述する
+使いたい場合はpseudo selector使う
+
+```css
+[id="id-selector"] {
+  margin: 0;
+}
+```
+
+- keyframesはケバブケースで記述する
 
 ```css
 /* bad */
@@ -50,6 +58,8 @@ a {
 }
 ```
 
+`background` `animation`  `transition`に関してはその限りではない。
+
 - 省略形のプロパティで冗長な記述をしない
 
 ```css
@@ -63,23 +73,107 @@ a {
 }
 ```
 
+
+- コンテンツのfont-sizeはremまたは相対長を使用する
+
+```css
+/* bad */
+a {
+  font-size: 10mm;
+}
+p {
+  font-size: 10px;
+}
+/* good */
+a {
+  font-size: 10ex;
+}
+p {
+  font-size: 1.2rem;
+}
+em {
+  font-size: 2em;
+}
+```
+
+- Type Selectorは非推奨
+
+```css
+/* bad */
+a {
+  color: red;
+}
+/* good */
+.link {
+  color: red;
+}
+
+```
+
+- !importantの禁止
+
+```css
+/* bad */
+.important-class {
+  color: red!important;
+}
+/* good */
+.important-class.important-class.important-class.important-class {
+  color: red;
+}
+
+```
+
 ## BEM
 
-Block: スタイルの論理単位の一意で意味のある名前
+- Block: スタイルの論理単位の一意で意味のある名前
 
 ```css
 ConciergeCard {}
 ```
 
-Element: ブロックの子にのみ適用されるスタイル。ブロック名に2つのアンダースコアで連結する。
+- Element: ブロックの子にのみ適用されるスタイル。ブロック名に2つのアンダースコアで連結する。
 
 ```css
 ConciergeCard__title {}
 ```
 
-Modifier: ブロックまたは要素の基本スタイルをモディファイアスタイルでオーバーライドまたは拡張する。ブロック名に2つのハイフンで連結する。
+- Modifier: ブロックまたは要素の基本スタイルをモディファイアスタイルでオーバーライドまたは拡張する。ブロック名に2つのハイフンで連結する。
 
 ```css
 ConciergeCard__title--large {}
 ConciergeCard__title--small {}
+```
+
+## SCSS
+
+- Parent Selectorを使用しない
+
+```scss
+/* bad */
+.ConciergeCard {
+  margin: 10px 15px;
+  &__title {
+    color: red;
+  }
+}
+
+/* good */
+.ConciergeCard {
+  margin: 10px 15px;
+}
+
+.ConciergeCard__title {
+  color: red;
+}
+```
+
+- @importの禁止
+
+```scss
+/* bad */
+@import "./mixins";
+
+/* good */
+@use "./mixins" as mixin;
 ```
